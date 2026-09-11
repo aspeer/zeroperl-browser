@@ -27,8 +27,8 @@ repository identity, attests provenance and runs npm stage publish using
 npm 11.19.1. The report says awaiting approval, not published.
 
 Review the candidate on npm and approve with MFA. Verify the resulting public
-version and archive integrity afterward. Validate the first staged release
-end to end before treating the staging/approval pipeline as qualified.
+version and archive integrity afterward. The 1.0.0 release completed this staging, MFA approval and registry
+verification sequence successfully.
 
 ## Current status
 
@@ -36,7 +36,9 @@ Version 0.1.0 is public on npm. The initial release was published manually
 from the GitHub-qualified archive, and the registry archive integrity was
 verified. The maintainer subsequently confirmed Trusted Publishing setup.
 GitHub qualification, local packed-consumer tests and Chromium tests have
-passed. The first npm staging/approval cycle remains to be verified.
+passed. Version 1.0.0 completed GitHub Trusted Publishing staging and maintainer MFA
+approval, and its public registry checksum matches the qualified archive.
+It includes ZeroPerl ^1.0.9 as a direct dependency.
 
 The Fortune browser sample uses the published package and is deployed at
 [GitHub Pages](https://aspeer.github.io/psp-WebDyne-Fortune-wasm-browser/).
