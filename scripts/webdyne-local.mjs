@@ -68,8 +68,15 @@ export async function buildSite(options) {
     try { await stat(output); throw Error('Existing output directory is not owned by webdyne-local'); }
     catch (missing) { if (missing.code !== 'ENOENT') throw missing; }
   }
-  const require = createRequire(resolve(root, 'package.json'));
-  const runtimeEntry = require.resolve(`${options.runtime}/runtime`);
+  let require = createRequire(resolve(root, 'package.json'));
+  let runtimeEntry;
+  try { runtimeEntry = require.resolve(`${options.runtime}/runtime`); }
+  catch (error) {
+    if (error.code !== 'MODULE_NOT_FOUND' || options.runtime !== '@webdyne/webdyne-zeroperl') throw error;
+    // npm may nest the bundled runtime beneath this package.
+    require = createRequire(import.meta.url);
+    runtimeEntry = require.resolve(`${options.runtime}/runtime`);
+  }
   const runtimeRoot = resolve(dirname(runtimeEntry), '../..');
   const runtimePackage = JSON.parse(await readFile(resolve(runtimeRoot, 'package.json'), 'utf8'));
   const workspace = resolve(root, '.webdyne-local');

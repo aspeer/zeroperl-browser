@@ -16,10 +16,10 @@ let server;
 let browser;
 try {
   await writeFile(join(repo, 'package.json'), JSON.stringify({ name: 'browser-packed-test', private: true, dependencies: {
-    '@webdyne/webdyne-zeroperl-browser': `file:${tarball}`, '@webdyne/webdyne-zeroperl': '1.0.9',
+    '@webdyne/webdyne-zeroperl-browser': `file:${tarball}`,
   } }));
   await writeFile(join(repo, 'app/app.psp'), '<start_html title="Packed consumer"><h1 id="result">Perl <? 6 * 7 ?></h1>');
-  run('npm', ['install', '--ignore-scripts', '--no-audit', '--no-fund']);
+  run('npm', ['install', '--install-strategy=nested', '--ignore-scripts', '--no-audit', '--no-fund']);
   run('npx', ['--no-install', 'webdyne-browser', 'init']);
   run('npm', ['run', 'build']);
   assert.equal(JSON.parse(await readFile(join(repo, 'htdocs/manifest.json'), 'utf8')).generator, '@webdyne/webdyne-zeroperl-browser');

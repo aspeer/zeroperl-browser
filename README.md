@@ -26,11 +26,12 @@ is no server runtime or CDN dependency. Do not open `index.html` through
 
 ## Use in an application
 
-Install the published package with a supported runtime in your application:
+Initialize your npm project and install the published package. Version 1.0.0
+and later include ZeroPerl as a dependency:
 
 ```sh
-npm install --save-dev @webdyne/webdyne-zeroperl-browser
-npm install @webdyne/webdyne-zeroperl@^1.0.9
+npm init -y
+npm install @webdyne/webdyne-zeroperl-browser
 npx webdyne-browser init
 npm run build
 ```
@@ -47,6 +48,11 @@ npm run build
   }
 }
 ```
+
+For an existing npm project, skip `npm init -y`. Optionally use `--save-dev`
+on installation to classify the browser builder as a development dependency.
+The standard runtime is installed automatically; `--runtime` remains available
+for alternative runtime packages installed by the application.
 
 The initializer creates `build`, `dev` and `gh-pages` scripts. Existing
 Cloudflare build/dev commands are preserved as `build:cloudflare` and

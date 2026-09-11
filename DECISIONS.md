@@ -36,3 +36,10 @@ manual MFA approval, following the existing runtime release model.
 
 Use gh-pages rather than custom Git branch manipulation. Publish only after a
 successful build; preserve history and source checkout state.
+
+## Version 1.0.0: automatic runtime installation
+
+The browser package depends directly on `@webdyne/webdyne-zeroperl` ^1.0.9
+so applications need only install the browser package. Resolution prefers
+the application's runtime and falls back to the bundled dependency when npm
+nests it. Explicit alternative runtimes still resolve from the application.

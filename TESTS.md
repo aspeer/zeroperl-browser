@@ -75,3 +75,11 @@ Chromium suite, Fortune build and Chromium suite, and packed-consumer test
 pass. Coverage includes offline reload, interpreter reuse, POST, timed SSE,
 Fortune HTMX refresh, single-PSP htdocs builds, failed-build preservation and
 local gh-pages creation/update. The peer range remains `>=1.0.6 <2`.
+
+## Version 1.0.0 qualification
+
+The packed-consumer fixture installs only the browser archive, using npm's
+nested installation strategy to exercise automatic runtime resolution.
+It verifies the single-PSP build, rendering, build preservation and local
+gh-pages deployment. The direct runtime dependency replaces the optional
+peer dependency from 0.1.0.

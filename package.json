@@ -1,6 +1,6 @@
 {
   "name": "@webdyne/webdyne-zeroperl-browser",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Static-site browser host for WebDyne and ZeroPerl",
   "type": "module",
   "license": "MIT",
@@ -32,18 +32,10 @@
   "dependencies": {
     "esbuild": "^0.25.0",
     "gh-pages": "6.3.0",
-    "htmx.org": "2.0.8"
-  },
-  "peerDependencies": {
-    "@webdyne/webdyne-zeroperl": ">=1.0.6 <2"
-  },
-  "peerDependenciesMeta": {
-    "@webdyne/webdyne-zeroperl": {
-      "optional": true
-    }
+    "htmx.org": "2.0.8",
+    "@webdyne/webdyne-zeroperl": "^1.0.9"
   },
   "devDependencies": {
-    "@webdyne/webdyne-zeroperl": "1.0.9",
     "playwright": "^1.55.0"
   },
   "publishConfig": {
