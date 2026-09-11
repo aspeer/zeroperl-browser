@@ -61,9 +61,11 @@ twice to a temporary local bare Git remote and verifies gh-pages content,
 parent history, .nojekyll, and preservation of the source branch and HEAD.
 No live Gitea/GitHub gh-pages push was performed.
 
-`actionlint .github/workflows/webdyne-browser-npm.yml` passes locally. Actual
-GitHub workflow execution, npm Trusted Publishing and npm staging remain
-external release qualification steps.
+`actionlint .github/workflows/webdyne-browser-npm.yml` passes locally. GitHub qualification has also passed. Version 0.1.0 was manually published
+from the qualified archive and its public registry integrity verified.
+Trusted Publishing setup is confirmed; the first npm staging/approval cycle
+remains an external release qualification step. The Fortune sample using the
+published package has passed live GitHub Pages refresh and offline tests.
 
 ## ZeroPerl 1.0.9 verification
 

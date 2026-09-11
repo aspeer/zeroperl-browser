@@ -1,6 +1,6 @@
 # Browser package release
 
-Package: @webdyne/webdyne-zeroperl-browser
+Package: [@webdyne/webdyne-zeroperl-browser](https://www.npmjs.com/package/@webdyne/webdyne-zeroperl-browser)
 GitHub: https://github.com/aspeer/zeroperl-browser
 Gitea origin: gitea@gitea.isolutions.com.au:aspeer/zeroperl-browser.git
 Workflow: .github/workflows/webdyne-browser-npm.yml
@@ -15,9 +15,9 @@ The tarball, pack metadata, source revision and SHA-256 are uploaded together.
 
 ## Staging
 
-Configure npm Trusted Publishing for owner aspeer, repository zeroperl-browser,
-workflow webdyne-browser-npm.yml. Grant stage-only permission, not direct
-publication. Package ownership/initial setup may require maintainer action.
+npm Trusted Publishing has been configured for owner aspeer, repository
+zeroperl-browser, workflow webdyne-browser-npm.yml. The release workflow uses
+stage-only publishing with maintainer approval.
 There is no token fallback and no automatic MFA approval.
 
 Review and merge the source to main, then dispatch the workflow on main with
@@ -27,13 +27,17 @@ repository identity, attests provenance and runs npm stage publish using
 npm 11.19.1. The report says awaiting approval, not published.
 
 Review the candidate on npm and approve with MFA. Verify the resulting public
-version and archive integrity afterward. For the first version, validate this
-end-to-end sequence before treating the release pipeline as qualified.
+version and archive integrity afterward. Validate the first staged release
+end to end before treating the staging/approval pipeline as qualified.
 
 ## Current status
 
-The workflow is implemented and actionlint passes. Local packed-consumer,
-Chromium and temporary gh-pages-remote tests pass. No workflow dispatch,
-npm stage upload, npm approval, live gh-pages push or package publication has
-been performed. The GitHub repository was created at the user's request;
-source push/merge and npm trust setup remain separate steps.
+Version 0.1.0 is public on npm. The initial release was published manually
+from the GitHub-qualified archive, and the registry archive integrity was
+verified. The maintainer subsequently confirmed Trusted Publishing setup.
+GitHub qualification, local packed-consumer tests and Chromium tests have
+passed. The first npm staging/approval cycle remains to be verified.
+
+The Fortune browser sample uses the published package and is deployed at
+[GitHub Pages](https://aspeer.github.io/psp-WebDyne-Fortune-wasm-browser/).
+Its automated build/deployment and live refresh/offline tests have passed.

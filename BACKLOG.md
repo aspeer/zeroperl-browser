@@ -9,6 +9,6 @@
 - Qualify HTMX boost/history, extensions, whole-body swaps and navigation cancellation under slow requests.
 
 - Push reviewed source to the confirmed remotes and qualify the GitHub workflow.
-- Configure npm stage-only Trusted Publishing and qualify first staging/approval.
+- Qualify the first npm staging/approval cycle with the configured Trusted Publishing setup.
 - Confirm the Fortune gh-pages remote and test an actual static-host deployment.
 - Broaden browser/cache-update qualification beyond Chromium.

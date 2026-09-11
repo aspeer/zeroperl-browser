@@ -5,7 +5,8 @@ ZeroPerl WASM runtime. A persistent HTML shell owns one dedicated Perl worker
 per tab. Application pages render without iframes. Hash routes keep links
 usable on static hosts, including sites below a GitHub Pages project path.
 
-This package does not modify or fork `aspeer-zeroperl`. It is not published yet.
+Published on npm as [@webdyne/webdyne-zeroperl-browser](https://www.npmjs.com/package/@webdyne/webdyne-zeroperl-browser).
+This package does not modify or fork `aspeer-zeroperl`.
 
 ## Try the repository example
 
@@ -25,11 +26,11 @@ is no server runtime or CDN dependency. Do not open `index.html` through
 
 ## Use in an application
 
-Until npm publication, install a packed candidate with a supported runtime in your application:
+Install the published package with a supported runtime in your application:
 
 ```sh
-npm install --save-dev /path/to/webdyne-webdyne-zeroperl-browser-0.1.0.tgz
-npm install @webdyne/webdyne-zeroperl@1.0.6
+npm install --save-dev @webdyne/webdyne-zeroperl-browser
+npm install @webdyne/webdyne-zeroperl@^1.0.9
 npx webdyne-browser init
 npm run build
 ```
@@ -50,7 +51,7 @@ npm run build
 The initializer creates `build`, `dev` and `gh-pages` scripts. Existing
 Cloudflare build/dev commands are preserved as `build:cloudflare` and
 `dev:cloudflare`; unrelated custom commands cause a clear error instead of
-being overwritten. Once published, install the browser package by its npm name.
+being overwritten.
 
 Commands accept `--project DIR`, `--output DIR` (default `htdocs`),
 `--runtime PACKAGE`, `--remote NAME` and `--port NUMBER` (default 4173). `serve` serves an
@@ -169,7 +170,8 @@ npm run test:browser
 ```
 
 See [TESTS.md](TESTS.md) for measured coverage and limitations. The initial
-qualification uses runtime 1.0.6 / Perl 5.44 and desktop Chromium only.
+qualification used runtime 1.0.6 / Perl 5.44; the suites also pass with runtime
+1.0.9. Browser qualification currently covers desktop Chromium only.
 
 ## Attribution
 
