@@ -1,0 +1,18 @@
+<start_html title="Local events" sse>
+<h1>Local event stream</h1>
+<p>This endpoint sends two timed events when requested as an event stream.</p>
+
+__PERL__
+
+use Future::AsyncAwait;
+
+async sub sse {
+    my ($self, $param_hr)=@_;
+    my $sse_or=$self->r()->sse();
+    await $sse_or->start(status => 200);
+    my $count=0;
+    await $sse_or->every(0.1, async sub {
+        await $sse_or->send_event(event => 'tick', data => ++$count);
+        $sse_or->close() if $count>=2;
+    });
+}

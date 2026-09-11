@@ -1,0 +1,21 @@
+<start_html title="WebDyne in your browser">
+<link rel="stylesheet" href="site.css">
+<h1>WebDyne in your browser</h1>
+<p>Perl is running locally in a persistent Web Worker.</p>
+<perl handler="visit"><p id="visits">Visits in this interpreter: ${count}</p></perl>
+<p><a id="next" href="next.psp">Open another page</a></p>
+<form method="post" action="next.psp">
+  <label>Your name <input name="name" value="Visitor"></label>
+  <button type="submit">Send to Perl</button>
+</form>
+<p id="script-status">Loading application script…</p>
+<script src="site.js"></script>
+
+__PERL__
+
+use vars qw($visit_count);
+
+sub visit {
+    my ($self)=@_;
+    return $self->render(count => ++$visit_count);
+}

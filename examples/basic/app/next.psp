@@ -1,0 +1,13 @@
+<start_html title="Another local page">
+<link rel="stylesheet" href="site.css">
+<h1>Another local page</h1>
+<perl handler="greeting" />
+<p><a id="home" href="app.psp">Back to the first page</a></p>
+
+__PERL__
+
+sub greeting {
+    my ($self)=@_;
+    my $name=$self->CGI()->param('name') || 'Visitor';
+    return $self->html_tiny()->p({id => 'greeting'}, 'Hello, '.$self->html_tiny()->entity_encode($name));
+}

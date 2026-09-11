@@ -1,0 +1,6 @@
+{
+  "name": "webdyne-local-fortune",
+  "private": true,
+  "type": "module",
+  "webdyne": { "appDirectory": "app", "entry": "app.psp" }
+}

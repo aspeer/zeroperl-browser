@@ -1,0 +1,60 @@
+{
+  "name": "@webdyne/webdyne-zeroperl-browser",
+  "version": "0.1.0",
+  "description": "Static-site browser host for WebDyne and ZeroPerl",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "webdyne-local": "scripts/webdyne-local.mjs",
+    "webdyne-browser": "scripts/webdyne-local.mjs"
+  },
+  "files": [
+    "browser",
+    "scripts",
+    "README.md",
+    "LICENSE",
+    "TESTS.md",
+    "RELEASE.md"
+  ],
+  "scripts": {
+    "build": "node scripts/webdyne-local.mjs build --project examples/basic --output dist",
+    "dev": "node scripts/webdyne-local.mjs dev --project examples/basic --output dist",
+    "test": "node --test t.js/*.test.mjs",
+    "test:browser": "node t.js/browser.mjs",
+    "prepare:fortune": "node scripts/prepare-fortune.mjs",
+    "build:fortune": "node scripts/webdyne-local.mjs build --project examples/fortune --output dist",
+    "dev:fortune": "node scripts/webdyne-local.mjs dev --project examples/fortune --port 4174 --output dist",
+    "test:fortune": "node t.js/fortune.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "esbuild": "^0.25.0",
+    "gh-pages": "6.3.0",
+    "htmx.org": "2.0.8"
+  },
+  "peerDependencies": {
+    "@webdyne/webdyne-zeroperl": ">=1.0.6 <2"
+  },
+  "peerDependenciesMeta": {
+    "@webdyne/webdyne-zeroperl": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@webdyne/webdyne-zeroperl": "1.0.6",
+    "playwright": "^1.55.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aspeer/zeroperl-browser.git"
+  },
+  "homepage": "https://github.com/aspeer/zeroperl-browser#readme",
+  "bugs": {
+    "url": "https://github.com/aspeer/zeroperl-browser/issues"
+  }
+}
