@@ -55,7 +55,7 @@ refresh/navigation/offline suite.
 
 `node t.js/packed.mjs PACKAGE.tgz` independently creates a temporary consumer
 with just app/app.psp and package metadata, installs the archive with runtime
-1.0.6, invokes its npm-installed executable, builds htdocs and renders Perl 42.
+1.0.9, invokes its npm-installed executable, builds htdocs and renders Perl 42.
 It verifies stale-file removal and failed-build preservation. It publishes
 twice to a temporary local bare Git remote and verifies gh-pages content,
 parent history, .nojekyll, and preservation of the source branch and HEAD.
@@ -64,3 +64,12 @@ No live Gitea/GitHub gh-pages push was performed.
 `actionlint .github/workflows/webdyne-browser-npm.yml` passes locally. Actual
 GitHub workflow execution, npm Trusted Publishing and npm staging remain
 external release qualification steps.
+
+## ZeroPerl 1.0.9 verification
+
+The development dependency, lockfile and packed-consumer fixture now use
+`@webdyne/webdyne-zeroperl` 1.0.9. All eight Node tests, the basic build and
+Chromium suite, Fortune build and Chromium suite, and packed-consumer test
+pass. Coverage includes offline reload, interpreter reuse, POST, timed SSE,
+Fortune HTMX refresh, single-PSP htdocs builds, failed-build preservation and
+local gh-pages creation/update. The peer range remains `>=1.0.6 <2`.

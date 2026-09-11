@@ -43,7 +43,7 @@
     }
   },
   "devDependencies": {
-    "@webdyne/webdyne-zeroperl": "1.0.6",
+    "@webdyne/webdyne-zeroperl": "1.0.9",
     "playwright": "^1.55.0"
   },
   "publishConfig": {
