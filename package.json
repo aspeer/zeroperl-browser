@@ -1,6 +1,6 @@
 {
   "name": "@webdyne/webdyne-zeroperl-browser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Static-site browser host for WebDyne and ZeroPerl",
   "type": "module",
   "license": "MIT",
@@ -14,7 +14,13 @@
     "README.md",
     "LICENSE",
     "TESTS.md",
-    "RELEASE.md"
+    "RELEASE.md",
+    "examples/README.md",
+    "examples/*/README.md",
+    "examples/*/package.json",
+    "examples/hello/app",
+    "examples/basic/app",
+    "examples/pagi/app"
   ],
   "scripts": {
     "build": "node scripts/webdyne-local.mjs build --project examples/basic --output dist",
