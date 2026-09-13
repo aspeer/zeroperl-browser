@@ -17,9 +17,9 @@ Initial run: 2026-09-11, macOS arm64, Node 26.8.1,
 - `npm pack --dry-run`: passes. Runtime binaries and generated examples are
   not accidentally included in the companion npm package.
 
-The browser test requires `npx playwright install chromium`. This session used
-`PLAYWRIGHT_BROWSERS_PATH=/private/tmp/webdyne-local-browsers` to keep downloaded
-browsers in temporary storage. It writes a final screenshot in the operating system temporary directory.
+The browser test requires `npx playwright install chromium`. Set
+`PLAYWRIGHT_BROWSERS_PATH` if using a custom browser installation directory.
+Screenshots are written to the operating system temporary directory.
 
 Not qualified: Safari/Firefox/mobile, actual GitHub Pages deployment,
 long-lived/background SSE, service-worker updates across releases, general
@@ -83,3 +83,11 @@ nested installation strategy to exercise automatic runtime resolution.
 It verifies the single-PSP build, rendering, build preservation and local
 gh-pages deployment. The direct runtime dependency replaces the optional
 peer dependency from 0.1.0.
+
+## Introductory examples
+
+The hello PSP and standalone PAGI examples build with runtime 1.0.9.
+Chromium verified rendered content and offline reload for both. The hello
+page also passes native wdlint and wdrender; the existing seven native Perl
+assertions pass. The PAGI example exercises the existing `.pagi` entry loader,
+HTTP response events and lifespan startup/shutdown handling.

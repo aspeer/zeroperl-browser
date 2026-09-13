@@ -1,0 +1,8 @@
+{
+  "name": "webdyne-browser-hello",
+  "private": true,
+  "webdyne": {
+    "appDirectory": "app",
+    "entry": "app.psp"
+  }
+}

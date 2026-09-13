@@ -1,0 +1,31 @@
+use strict;
+use warnings;
+use Future::AsyncAwait;
+
+async sub {
+    my ($scope_hr, $receive_cr, $send_cr)=@_;
+    if ($scope_hr->{'type'} eq 'lifespan') {
+        while (1) {
+            my $event_hr=await $receive_cr->();
+            if ($event_hr->{'type'} eq 'lifespan.startup') {
+                await $send_cr->({type => 'lifespan.startup.complete'});
+            }
+            elsif ($event_hr->{'type'} eq 'lifespan.shutdown') {
+                await $send_cr->({type => 'lifespan.shutdown.complete'});
+                return;
+            }
+        }
+    }
+    die "unsupported scope type" unless $scope_hr->{'type'} eq 'http';
+    await $send_cr->({
+        type    => 'http.response.start',
+        status  => 200,
+        headers => [['content-type', 'text/html; charset=utf-8']],
+    });
+    await $send_cr->({
+        type => 'http.response.body',
+        body => '<!doctype html><html><head><title>Hello PAGI</title></head>'
+            .'<body><h1>Hello from PAGI</h1><p>Perl generated this response directly.</p></body></html>',
+        more_body => 0,
+    });
+};

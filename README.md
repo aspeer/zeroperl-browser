@@ -8,6 +8,9 @@ usable on static hosts, including sites below a GitHub Pages project path.
 Published on npm as [@webdyne/webdyne-zeroperl-browser](https://www.npmjs.com/package/@webdyne/webdyne-zeroperl-browser).
 This package does not modify or fork `aspeer-zeroperl`.
 
+See [examples](examples/README.md) for small PSP and standalone PAGI applications,
+with build and run instructions for each.
+
 ## Try the repository example
 
 ```sh
