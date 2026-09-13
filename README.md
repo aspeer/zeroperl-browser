@@ -98,6 +98,9 @@ back/forward navigation. It sets a virtual document base for relative assets
 and recreates scripts from rendered HTML in source order. Stylesheets and
 application scripts can therefore be served directly from the VFS.
 
+The startup status reads “Initializing local Perl runtime…” in a 14px system
+font. Normal navigation shows no loading message and adds no delay.
+
 Each tab has its own interpreter. Reloading starts a fresh interpreter using
 cached artifacts. Offline reload works after the service worker has installed
 successfully, subject to normal browser cache retention. Updates wait for old

@@ -106,8 +106,7 @@ async function navigate(url, init = {}, updateHistory = true) {
   htmxHost.beginNavigation();
   navigation = new AbortController();
   const signal = navigation.signal;
-  status.hidden = false;
-  status.textContent = 'Rendering with local Perl…';
+  if (page.dataset.ready === 'true') status.hidden = true;
   let target = applicationUrl(url);
   let options = { ...init, signal };
   let response;

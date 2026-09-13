@@ -101,7 +101,7 @@ export async function buildSite(options) {
     await bundle({ ...common, entryPoints: [resolve(packageRoot, 'browser/perl-worker.js')], outfile: resolve(output, 'perl-worker.js'),
       alias: { '@webdyne-runtime': runtimeEntry } });
     await bundle({ ...common, entryPoints: [resolve(packageRoot, 'browser/shell.js')], outfile: resolve(output, 'shell.js') });
-    await writeFile(resolve(output, 'index.html'), '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Loading WebDyne</title></head><body><div id="webdyne-status" role="status">Loading local Perl runtime…</div><main id="webdyne-page"></main><script type="module" src="./shell.js"></script></body></html>\n');
+    await writeFile(resolve(output, 'index.html'), '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Loading WebDyne</title></head><body><div id="webdyne-status" role="status" style="font: 400 14px system-ui, sans-serif; color: #666">Initializing local Perl runtime…</div><main id="webdyne-page"></main><script type="module" src="./shell.js"></script></body></html>\n');
     const digest = createHash('sha256');
     for (const name of files) digest.update(await readFile(resolve(output, name)));
     digest.update(await readFile(resolve(packageRoot, 'browser/service-worker.js')));
